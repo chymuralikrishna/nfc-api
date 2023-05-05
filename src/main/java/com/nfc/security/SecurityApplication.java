@@ -29,8 +29,6 @@ public class SecurityApplication {
 		Permission update=new Permission();read.setName("UPDATE");
 		Permission delete=new Permission();read.setName("DELETE");
 
-		
-
 		Set<Permission> adminPermission=new HashSet<>();
 		adminPermission.add(read);adminPermission.add(create);adminPermission.add(update);adminPermission.add(delete);
 		
@@ -40,12 +38,12 @@ public class SecurityApplication {
 		adminRole.setRoleDesc("Administrator");
 		Set<Role> adminRoles =new HashSet<Role>();
 		adminRoles.add(adminRole);
-		
 			
 		return args -> {
 			var admin = RegisterRequest.builder()
 					.firstname("Admin")
 					.lastname("Admin")
+					.username("admin")
 					.email("admin@mail.com")
 					.password("password")
 					.roles(adminRoles)
